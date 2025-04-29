@@ -3,6 +3,7 @@ import readline from "readline";
 export const askQuestion = function (query) {
     const rl = readline.createInterface(process.stdin, process.stdout);
 
+    // To give message when programme is exited
     rl.on("SIGINT", () => {
         console.log("\nExiting programme.");
         rl.close();
