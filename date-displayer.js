@@ -7,10 +7,6 @@ const convertDateStrToLocaleDateStr = function (dateStr) {
         date.toLocaleTimeString(),
     ];
     return localeDateSTr.join(" at ");
-    let dateArr = dateStr.split("-");
-    // [YYYY, MM, DDTHH:mm:ss.sssZ here:]
-    dateArr[2].split("T");
-    // [YYYY, MM, [DD, HH:mm:ss.sssZ]]
 };
 
 const main = async function () {
