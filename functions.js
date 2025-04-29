@@ -1,6 +1,6 @@
 import readline from "readline";
 
-const askQuestion = function (query) {
+export const askQuestion = function (query) {
     const rl = readline.createInterface(process.stdin, process.stdout);
 
     rl.on("SIGINT", () => {
@@ -18,8 +18,6 @@ const askQuestion = function (query) {
 };
 
 export const askForInt = async function () {
-    let int = null;
-
     while (true) {
         let possibleInt = await askQuestion(
             "Please enter an integer in base 10: "
@@ -29,8 +27,7 @@ export const askForInt = async function () {
             if (isNaN(possibleInt)) {
                 throw new Error("Input is not a number");
             } else if (Number.isInteger(possibleInt)) {
-                int = possibleInt;
-                break;
+                return possibleInt;
             } else {
                 throw new Error("Input is not an integer");
             }
@@ -38,6 +35,4 @@ export const askForInt = async function () {
             console.error("Error:", err.message);
         }
     }
-
-    return int;
 };
